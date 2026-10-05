@@ -1,0 +1,159 @@
+/* Adrielle · Portfolio Desktop — tokens gerados de tokens.json */
+
+:root, [data-theme="light"] {
+  --primary: #0A4FA8;
+  --primary-hover: #0B3F87;
+  --on-primary: #FFFFFF;
+  --link: #1559A8;
+  --titlebar-start: #0A4FA8;
+  --titlebar-end: #1F6FD0;
+  --titlebar-alt: #0F6E85;
+  --titlebar-text: #FFFFFF;
+  --sky-top: #1C6FD9;
+  --sky-bottom: #8EC5F4;
+  --grass: #4CA22C;
+  --grass-deep: #2E6B1E;
+  --accent: #FFD43B;
+  --keycap: #2B3640;
+  --keycap-text: #F2F5F8;
+  --terminal-bg: #0D1117;
+  --terminal-text: #E6EDF3;
+  --terminal-green: #7EE787;
+  --terminal-blue: #79C0FF;
+  --terminal-orange: #FFA657;
+  --chrome: #D4D0C8;
+  --chrome-light: #ECE9E1;
+  --bevel-light: #FFFFFF;
+  --bevel-shadow: #808080;
+  --bevel-dark: #404040;
+  --surface: #FFFFFF;
+  --surface-sunken: #FFFFFF;
+  --selection: #DCEBFB;
+  --ink: #1A1F2B;
+  --ink-muted: #4A5263;
+  --border: #808080;
+  --success: var(--grass-deep);
+  --danger: #B3261E;
+  --focus: #1A1F2B;
+  --shadow-bevel-out: inset -1px -1px 0 #404040, inset 1px 1px 0 #ffffff, inset -2px -2px 0 #808080, inset 2px 2px 0 #ece9e1;
+  --shadow-bevel-in: inset 1px 1px 0 #404040, inset -1px -1px 0 #ffffff, inset 2px 2px 0 #808080, inset -2px -2px 0 #ece9e1;
+  --shadow-window: 4px 4px 0 rgba(10, 31, 68, 0.35);
+  --shadow-lift: 8px 8px 0 rgba(10, 31, 68, 0.35);
+  --shadow-cta: 4px 4px 0 #1a1f2b;
+  --text-on-sky: 0 2px 0 rgba(10, 31, 68, 0.55);
+}
+
+[data-theme="dark"] {
+  --primary: #6CB2FF;
+  --primary-hover: #9ACBFF;
+  --on-primary: #0A1A33;
+  --link: #79B8FF;
+  --titlebar-start: #1B3A66;
+  --titlebar-end: #2F5F9E;
+  --titlebar-alt: #13586B;
+  --titlebar-text: #FFFFFF;
+  --sky-top: #0B1E3A;
+  --sky-bottom: #13325C;
+  --grass: #2F6B1F;
+  --grass-deep: #7CD457;
+  --accent: #FFD43B;
+  --keycap: #3A4756;
+  --keycap-text: #F2F5F8;
+  --terminal-bg: #0D1117;
+  --terminal-text: #E6EDF3;
+  --terminal-green: #7EE787;
+  --terminal-blue: #79C0FF;
+  --terminal-orange: #FFA657;
+  --chrome: #2B3138;
+  --chrome-light: #353C45;
+  --bevel-light: #5A6574;
+  --bevel-shadow: #12161B;
+  --bevel-dark: #000000;
+  --surface: #161B22;
+  --surface-sunken: #0D1117;
+  --selection: #1A2D4A;
+  --ink: #E6EDF3;
+  --ink-muted: #A3ADBA;
+  --border: #7A8596;
+  --success: var(--grass-deep);
+  --danger: #FF8A80;
+  --focus: #FFD43B;
+  --shadow-bevel-out: inset -1px -1px 0 #000000, inset 1px 1px 0 #5a6574, inset -2px -2px 0 #12161b, inset 2px 2px 0 #3d4652;
+  --shadow-bevel-in: inset 1px 1px 0 #000000, inset -1px -1px 0 #5a6574, inset 2px 2px 0 #12161b, inset -2px -2px 0 #3d4652;
+  --shadow-window: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  --shadow-lift: 8px 8px 0 rgba(0, 0, 0, 0.6);
+  --shadow-cta: 4px 4px 0 #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary: #6CB2FF;
+    --primary-hover: #9ACBFF;
+    --on-primary: #0A1A33;
+    --link: #79B8FF;
+    --titlebar-start: #1B3A66;
+    --titlebar-end: #2F5F9E;
+    --titlebar-alt: #13586B;
+    --titlebar-text: #FFFFFF;
+    --sky-top: #0B1E3A;
+    --sky-bottom: #13325C;
+    --grass: #2F6B1F;
+    --grass-deep: #7CD457;
+    --accent: #FFD43B;
+    --keycap: #3A4756;
+    --keycap-text: #F2F5F8;
+    --terminal-bg: #0D1117;
+    --terminal-text: #E6EDF3;
+    --terminal-green: #7EE787;
+    --terminal-blue: #79C0FF;
+    --terminal-orange: #FFA657;
+    --chrome: #2B3138;
+    --chrome-light: #353C45;
+    --bevel-light: #5A6574;
+    --bevel-shadow: #12161B;
+    --bevel-dark: #000000;
+    --surface: #161B22;
+    --surface-sunken: #0D1117;
+    --selection: #1A2D4A;
+    --ink: #E6EDF3;
+    --ink-muted: #A3ADBA;
+    --border: #7A8596;
+    --success: var(--grass-deep);
+    --danger: #FF8A80;
+    --focus: #FFD43B;
+    --shadow-bevel-out: inset -1px -1px 0 #000000, inset 1px 1px 0 #5a6574, inset -2px -2px 0 #12161b, inset 2px 2px 0 #3d4652;
+    --shadow-bevel-in: inset 1px 1px 0 #000000, inset -1px -1px 0 #5a6574, inset 2px 2px 0 #12161b, inset -2px -2px 0 #3d4652;
+    --shadow-window: 4px 4px 0 rgba(0, 0, 0, 0.6);
+    --shadow-lift: 8px 8px 0 rgba(0, 0, 0, 0.6);
+    --shadow-cta: 4px 4px 0 #000000;
+  }
+}
+
+:root {
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-sans: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-pixel: "Pixelify Sans", "Tahoma", "Verdana", sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", ui-monospace, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-0: 0px;
+  --radius-sm: 3px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+  --size-titlebar: 30px;
+  --size-touch: 44px;
+  --size-icon-desktop: 48px;
+  --size-icon-ui: 16px;
+  --size-container: 1200px;
+  --size-measure: 68ch;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+}

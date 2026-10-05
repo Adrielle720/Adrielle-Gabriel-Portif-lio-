@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adrielle Gabriel Santana · Full Stack & Dados</title>
+    <meta name="description" content="Portfólio de Adrielle Gabriel Santana — desenvolvimento full stack, dados e IA aplicada. Ciência da Computação no Insper." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Poppins:wght@400;600&family=Pixelify+Sans:wght@500;600&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <script>
+      // Aplica o tema antes do primeiro paint para não piscar.
+      (function () {
+        var t
+        try { t = localStorage.getItem('theme') } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = t
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
