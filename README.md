@@ -22,14 +22,12 @@ Todo o conteúdo fica em `src/data/`. Não é preciso mexer nos componentes.
 | `projects.ts` | cards de projeto; `category: 'dev' \| 'dados'` alimenta o filtro |
 
 - **Imagem de projeto:** coloque em `public/projetos/` e use `image: '/projetos/arquivo.png'`.
-- **Formulário:** sem configuração, abre o app de e-mail (mailto). Para enviar direto, crie um formulário no Formspree, copie `.env.example` para `.env` e preencha `VITE_FORMSPREE_ID`.
+- **Formulário:** as mensagens são enviadas pelo [FormSubmit](https://formsubmit.co) para o e-mail em `formInbox` (`profile.ts`). Ao trocar esse e-mail, o primeiro envio dispara um pedido de ativação na caixa nova — é só clicar em "Activate Form".
 
 ## Publicação
 
 A cada push na `main`, o workflow `.github/workflows/deploy.yml` gera o build e publica no GitHub Pages.
 Na primeira vez, ative em **Settings → Pages → Source: GitHub Actions**.
-Para o formulário enviar direto (sem mailto), crie a variável `VITE_FORMSPREE_ID` em **Settings → Secrets and variables → Actions → Variables**.
-
 ## Tokens
 
 `src/styles/tokens.css` traz as cores, sombras e espaçamentos do design system (claro e escuro). As fontes são carregadas no `index.html`.

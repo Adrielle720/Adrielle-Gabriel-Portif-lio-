@@ -8,5 +8,9 @@ export const profile = {
   email: 'adriellegs@al.insper.edu.br',
   linkedin: 'https://www.linkedin.com/in/adrielle-gabriel-santana-6061ba211/',
   github: 'https://github.com/Adrielle720',
-  formspreeId: (import.meta.env.VITE_FORMSPREE_ID as string | undefined) || undefined,
+  /**
+   * Caixa que recebe as mensagens do formulário (via FormSubmit). Depois da ativação,
+   * dá para trocar pelo código aleatório que o FormSubmit envia, para não expor o e-mail.
+   */
+  formInbox: 'adriellegsantana13@gmail.com',
 }

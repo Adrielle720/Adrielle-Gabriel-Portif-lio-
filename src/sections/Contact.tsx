@@ -27,7 +27,8 @@ export function Contact() {
   const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>({})
   const [sending, setSending] = useState(false)
   const [sendError, setSendError] = useState(false)
-  const [dialog, setDialog] = useState<null | 'sent' | 'mailto'>(null)
+  const [dialog, setDialog] = useState(false)
+  const [honey, setHoney] = useState('')
   const [copied, setCopied] = useState(false)
   const fieldRefs = useRef<Partial<Record<FieldName, HTMLInputElement | HTMLTextAreaElement | null>>>({})
 
@@ -47,27 +48,27 @@ export function Contact() {
       return
     }
 
-    if (!profile.formspreeId) {
-      const body = `${values.message}\n\n— ${values.name} (${values.email})`
-      window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
-        `[Portfólio] ${values.subject}`,
-      )}&body=${encodeURIComponent(body)}`
-      setDialog('mailto')
-      return
-    }
-
     setSending(true)
     setSendError(false)
     try {
-      const res = await fetch(`https://formspree.io/f/${profile.formspreeId}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${profile.formInbox}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          nome: values.name,
+          email: values.email, // o FormSubmit usa este campo como "responder para"
+          assunto: values.subject,
+          mensagem: values.message,
+          _subject: `[Portfólio] ${values.subject} — ${values.name}`,
+          _template: 'table',
+          _honey: honey,
+        }),
       })
-      if (!res.ok) throw new Error(String(res.status))
+      const data = (await res.json().catch(() => null)) as { success?: string | boolean } | null
+      if (!res.ok || String(data?.success) !== 'true') throw new Error(String(res.status))
       setValues(EMPTY)
       setTouched({})
-      setDialog('sent')
+      setDialog(true)
     } catch {
       setSendError(true)
     } finally {
@@ -161,6 +162,18 @@ export function Contact() {
               {errorText('message')}
             </div>
 
+            {/* Armadilha anti-spam: invisível para pessoas, robôs costumam preencher. */}
+            <input
+              type="text"
+              name="_honey"
+              value={honey}
+              onChange={(e) => setHoney(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             <button type="submit" className="btn btn-primary" disabled={sending}>
               {sending ? 'Enviando…' : 'Enviar mensagem ▸'}
             </button>
@@ -195,19 +208,8 @@ export function Contact() {
         </Window>
       </div>
 
-      <MessageDialog
-        open={dialog !== null}
-        title={dialog === 'sent' ? 'Mensagem enviada' : 'Quase lá'}
-        onClose={() => setDialog(null)}
-      >
-        {dialog === 'sent' ? (
-          <>Obrigada pelo contato! Vou responder no e-mail que você informou.</>
-        ) : (
-          <>
-            Abri seu aplicativo de e-mail com a mensagem pronta — é só clicar em enviar. Se nada
-            abriu, use o botão <b>Copiar e-mail</b>.
-          </>
-        )}
+      <MessageDialog open={dialog} title="Mensagem enviada" onClose={() => setDialog(false)}>
+        Obrigada pelo contato! Vou responder no e-mail que você informou.
       </MessageDialog>
     </section>
   )

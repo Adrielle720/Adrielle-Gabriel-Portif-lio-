@@ -29,7 +29,6 @@ jobs:
         env:
           # Repositório <usuario>.github.io é servido na raiz; os outros em /<repo>/.
           BASE_PATH: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
-          VITE_FORMSPREE_ID: ${{ vars.VITE_FORMSPREE_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
